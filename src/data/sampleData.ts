@@ -41,6 +41,18 @@ export const sampleRepository: ArchitectureRepository = {
     { id: 'i8', sourceId: 'billing', targetId: 'oracle-db', type: 'Database', label: 'Database', criticality: 'critical' },
     { id: 'i9', sourceId: 'order-service', targetId: 'oracle-db', type: 'Database', label: 'Database', criticality: 'high' }
   ],
+  capabilities: [
+    { id: 'cap-order', name: 'Order Management', domain: 'Sales', owner: 'Sales Ops', description: 'Manage order capture, validation and fulfillment orchestration.' },
+    { id: 'cap-customer', name: 'Customer Management', domain: 'Customer', owner: 'Customer Team', description: 'Manage customers, accounts and self-service journeys.' },
+    { id: 'cap-billing', name: 'Billing', domain: 'Finance', owner: 'Finance IT', description: 'Generate invoices, process payments and reconcile balances.' },
+    { id: 'cap-inventory', name: 'Inventory Availability', domain: 'Operations', owner: 'Operations IT', description: 'Track stock, reservations and product availability.' }
+  ],
+  technologies: [
+    { id: 'tech-react', name: 'React', category: 'Frontend', owner: 'Architecture Team', lifecycle: 'approved', description: 'Standard UI library for customer and internal web applications.' },
+    { id: 'tech-java', name: 'Java', category: 'Backend', owner: 'Platform Team', lifecycle: 'approved', description: 'Primary backend language for business services.' },
+    { id: 'tech-oracle', name: 'Oracle 19c', category: 'Database', owner: 'DBA Team', lifecycle: 'approved', description: 'Enterprise relational database platform.' },
+    { id: 'tech-soap', name: 'SOAP', category: 'Integration', owner: 'Architecture Team', lifecycle: 'deprecated', description: 'Legacy integration style to be replaced by REST or events.' }
+  ],
   roadmap: [
     { id: 'r1', title: 'Migrate Billing System to Cloud', due: 'May 2026', status: 'in-progress' },
     { id: 'r2', title: 'Upgrade Oracle Database', due: 'Jun 2026', status: 'planned' },

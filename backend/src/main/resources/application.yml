@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: openea-studio-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/openea
+    username: openea
+    password: openea
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    default-property-inclusion: non_null
+
+openea:
+  cors:
+    allowed-origin: http://localhost:5173
+  security:
+    demo-user: admin
+    demo-password: admin123

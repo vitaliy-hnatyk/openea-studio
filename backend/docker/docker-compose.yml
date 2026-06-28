@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: openea-postgres
+    environment:
+      POSTGRES_DB: openea
+      POSTGRES_USER: openea
+      POSTGRES_PASSWORD: openea
+    ports:
+      - "5432:5432"
+    volumes:
+      - openea-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  openea-postgres-data:

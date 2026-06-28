@@ -147,3 +147,66 @@ tbody tr:hover, .selectedRow { background: #143771; }
   .canvasPanel { overflow: auto; }
   .gridBackground { width: 1100px; }
 }
+.secondaryAction { height: 38px; padding: 0 12px; border-radius: 7px; border: 1px solid var(--border); background: rgba(16, 27, 43, 0.9); color: #cfe1f5; }
+.secondaryAction:hover, .smallPrimary:hover, .rowActions button:hover, .panelActions button:hover { border-color: rgba(88,166,255,.55); color: #fff; }
+.panelActions { display: flex; align-items: center; gap: 6px; }
+.panelActions button, .rowActions button { width: 30px; height: 30px; border-radius: 7px; border: 1px solid var(--border); background: #111d2d; display: inline-grid; place-items: center; color: #c8d6e6; }
+.rowActions { white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.managementPanel { background: rgba(16, 27, 43, .85); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.managerHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.managerHeader h3 { margin: 0; font-size: 16px; }
+.managerHeader p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+.managerTabs { display: flex; flex-wrap: wrap; gap: 7px; }
+.managerTabs button { height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: 999px; background: #111d2d; color: #c8d6e6; text-transform: capitalize; }
+.managerTabs button.active { background: rgba(47, 129, 247, .24); color: #8dc2ff; border-color: rgba(47, 129, 247, .5); }
+.entityTableWrap { border: 1px solid var(--border); border-radius: 8px; background: rgba(13, 23, 38, .8); overflow: hidden; }
+.entityTableHeader { display: flex; align-items: center; justify-content: space-between; padding: 12px; border-bottom: 1px solid var(--border); }
+.entityTableHeader h4 { margin: 0; font-size: 14px; }
+.entityTableHeader span { color: var(--muted); font-weight: 400; }
+.smallPrimary { height: 32px; padding: 0 11px; display: inline-flex; gap: 7px; align-items: center; border: 1px solid rgba(47, 129, 247, .4); background: rgba(47, 129, 247, .2); color: #8dc2ff; border-radius: 7px; }
+.entityTableScroll { max-height: 280px; overflow: auto; }
+.entityTable th:last-child, .entityTable td:last-child { width: 86px; }
+.entityTable td { max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.entityTable tbody tr:hover { background: rgba(47, 129, 247, .1); }
+.modalOverlay { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: rgba(2, 6, 14, .72); backdrop-filter: blur(6px); }
+.modalCard { width: min(760px, 100%); max-height: calc(100vh - 48px); overflow: auto; background: #101b2b; border: 1px solid rgba(148, 163, 184, .28); border-radius: 12px; box-shadow: 0 24px 80px rgba(0,0,0,.45); }
+.modalHeader { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; border-bottom: 1px solid var(--border); }
+.modalHeader h3 { margin: 0; font-size: 17px; }
+.modalHeader button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: #111d2d; display: grid; place-items: center; }
+.modalForm { padding: 18px; display: grid; gap: 14px; }
+.formGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.formField { display: grid; gap: 7px; }
+.formField span { color: #a8b5c6; font-size: 12px; }
+.formField input, .formField textarea, .formField select { width: 100%; min-width: 0; background: #0d1726; border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 10px 11px; outline: none; }
+.formField textarea { min-height: 98px; resize: vertical; font-family: inherit; }
+.formField input:focus, .formField textarea:focus, .formField select:focus { border-color: rgba(47, 129, 247, .65); box-shadow: 0 0 0 3px rgba(47, 129, 247, .12); }
+.modalActions { display: flex; justify-content: flex-end; gap: 10px; padding-top: 4px; }
+.modalActions button { height: 38px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--border); background: #111d2d; }
+.modalActions .primaryBtn { border: 0; }
+@media (max-width: 850px) {
+  .managerHeader { align-items: flex-start; flex-direction: column; }
+  .formGrid { grid-template-columns: 1fr; }
+  .topActions { gap: 7px; }
+}
+
+/* React Flow architecture editor */
+.flowCanvasPanel { position: relative; height: 560px; min-height: 560px; overflow: hidden; }
+.flowCanvasPanel .react-flow { background: radial-gradient(circle at 30% 10%, rgba(47, 129, 247, .12), transparent 30%), rgba(8, 17, 31, .7); }
+.flowActionBar { position: absolute; z-index: 8; left: 14px; top: 14px; display: flex; align-items: center; gap: 8px; max-width: calc(100% - 28px); padding: 8px; background: rgba(13, 23, 38, .88); border: 1px solid var(--border); border-radius: 10px; backdrop-filter: blur(10px); }
+.flowActionBar button { min-width: 34px; height: 30px; border: 1px solid var(--border); background: #111d2d; color: var(--text); border-radius: 7px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.flowActionBar button:hover { border-color: #58a6ff; color: #58a6ff; }
+.flowActionBar span { color: #aab7c8; font-size: 12px; white-space: nowrap; }
+.flowAppNode { width: 190px; min-height: 68px; background: rgba(13, 23, 38, .97); border: 1.5px solid; border-radius: 10px; display: flex; align-items: center; gap: 10px; padding: 10px; text-align: left; box-shadow: 0 12px 30px rgba(0,0,0,.25); transition: .15s ease; color: var(--text); }
+.flowAppNode:hover, .flowAppNode.selected { transform: translateY(-2px); box-shadow: 0 0 0 2px rgba(47, 129, 247, .45), var(--shadow); }
+.flowAppNode em { font-style: normal; font-size: 10px; color: #c9ffc5; background: rgba(87, 201, 70, .2); padding: 4px 6px; border-radius: 999px; }
+.flowHandle { width: 9px !important; height: 9px !important; border: 2px solid #58a6ff !important; background: #0d1726 !important; }
+.flowEdge path { stroke: #8fa4bf; stroke-width: 1.8; }
+.flowEdge.criticality-high path, .flowEdge.criticality-critical path { stroke: #f59e0b; stroke-width: 2.2; }
+.react-flow__edge-textbg { fill: rgba(13, 23, 38, .9); }
+.react-flow__edge-text { fill: #dce6f2; font-size: 11px; }
+.react-flow__controls { background: rgba(13, 23, 38, .9); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: none; }
+.react-flow__controls button { background: #101b2b; border-bottom: 1px solid var(--border); color: var(--text); fill: var(--text); }
+.react-flow__controls button:hover { background: #143771; }
+.react-flow__minimap { background: rgba(13, 23, 38, .9); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.flowLegend { right: 16px; top: 62px; z-index: 7; }
+.flowLineLegend { right: 16px; bottom: 16px; z-index: 7; }

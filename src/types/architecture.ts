@@ -1,6 +1,7 @@
 export type AppStatus = 'active' | 'planned' | 'deprecated' | 'retired';
 export type Criticality = 'low' | 'medium' | 'high' | 'critical';
 export type IntegrationType = 'REST' | 'SOAP' | 'Database' | 'File' | 'Queue' | 'Event';
+export type TechnologyLifecycle = 'approved' | 'trial' | 'deprecated' | 'blocked';
 
 export interface Position {
   x: number;
@@ -30,6 +31,24 @@ export interface Integration {
   criticality: Criticality;
 }
 
+export interface BusinessCapability {
+  id: string;
+  name: string;
+  domain: string;
+  owner: string;
+  description: string;
+  parentId?: string;
+}
+
+export interface TechnologyItem {
+  id: string;
+  name: string;
+  category: string;
+  owner: string;
+  lifecycle: TechnologyLifecycle;
+  description: string;
+}
+
 export interface RoadmapItem {
   id: string;
   title: string;
@@ -40,5 +59,7 @@ export interface RoadmapItem {
 export interface ArchitectureRepository {
   applications: Application[];
   integrations: Integration[];
+  capabilities: BusinessCapability[];
+  technologies: TechnologyItem[];
   roadmap: RoadmapItem[];
 }

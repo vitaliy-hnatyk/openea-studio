@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { Edit2, Trash2, X } from 'lucide-react';
 import { Application, Integration } from '../types/architecture';
 import { appName, criticalityColor, incoming, outgoing } from '../utils/graph';
 
@@ -7,16 +7,25 @@ interface ApplicationDetailsProps {
   apps: Application[];
   integrations: Integration[];
   onSelect: (id: string) => void;
+  onEdit: () => void;
+  onDelete: () => void;
 }
 
-export function ApplicationDetails({ app, apps, integrations, onSelect }: ApplicationDetailsProps) {
+export function ApplicationDetails({ app, apps, integrations, onSelect, onEdit, onDelete }: ApplicationDetailsProps) {
   const inItems = incoming(app.id, integrations);
   const outItems = outgoing(app.id, integrations);
   const connected = [...inItems.map((item) => ({ ...item, direction: 'incoming' })), ...outItems.map((item) => ({ ...item, direction: 'outgoing' }))];
 
   return (
     <aside className="detailsPanel">
-      <div className="panelTitle"><h3>Application Details</h3><X size={18} /></div>
+      <div className="panelTitle">
+        <h3>Application Details</h3>
+        <div className="panelActions">
+          <button onClick={onEdit} title="Edit application"><Edit2 size={15} /></button>
+          <button onClick={() => confirm('Delete this application and its integrations?') && onDelete()} title="Delete application"><Trash2 size={15} /></button>
+          <X size={18} />
+        </div>
+      </div>
       <div className="detailsHeader">
         <div className="bigIcon">◇</div>
         <div><h2>{app.name}</h2><p>{app.domain}</p></div>
